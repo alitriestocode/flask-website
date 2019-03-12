@@ -1,0 +1,18 @@
+<doctype html>
+
+<!-- curly brackets is called Jinja script -->
+
+<html>
+<head>
+  <title>My Flask App Page</title>
+</head>
+
+<body>
+    {% if message %}
+      <p>Hello {{message}} </p>
+    {% else %}
+      <p>Hello - I have no message! </p>
+    {% endif %}
+</body>
+
+</html>
