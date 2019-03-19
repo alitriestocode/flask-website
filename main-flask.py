@@ -7,8 +7,10 @@ from horoscopeapi import zodiac_sign, get_horoscope
 app = Flask("MyApp")
 
 @app.route("/")
-def homepage():
-    render_template("index.html")
+def default():
+	m = "Welcome to my page"
+	return render_template("index.html", message=m)
+
 
 @app.route("/<visitor>")
 
