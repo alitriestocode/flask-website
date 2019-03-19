@@ -23,11 +23,25 @@
 
             <div id="contact-form" >
                 <form method="post" action="/gen">
-                    <label for="text">Please Enter Year of your brith</label>
-                    <input type="integer" id="dob" name="dob" required="required">
+                    <label for="text">Please Enter Year of your birth (e.g. 2001)</label>
+                    <input type="integer" id="year" name="year" required="required">
+                    <br>
                     <input type="submit" value="Submit" id="submit"/>
                 </form>
             </div>
+            <br>
+            <div id="contact-form2" >
+                <form method="post" action="/horoscope">
+                    <label for="text">Please Enter Month of your birth (e.g. 06)</label>
+                    <input type="integer" id="month" name="month" required="required">
+                    <br>
+                    <label for="text">Please Enter Day of your birth (e.g. 15)</label>
+                    <input type="integer" id="day" name="day" required="required">
+                    <br>
+                    <input type="submit" value="Submit" id="submit"/>
+                </form>
+            </div>
+
         </div>
 
     </body>

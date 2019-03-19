@@ -2,6 +2,8 @@ from flask import Flask
 from flask import render_template
 from flask import request
 import requests
+from horoscopeapi import zodiac_sign, get_horoscope
+
 app = Flask("MyApp")
 
 @app.route("/")
@@ -20,7 +22,7 @@ def welcome():
 @app.route("/gen", methods = ["POST"])
 def showgeneration():
     form_data = request.form
-    year = int(form_data["dob"])
+    year = int(form_data["year"])
     gen = define_gen(year)
     return render_template("gen.html", generation = gen )
 
@@ -37,7 +39,17 @@ def define_gen(date):
         return "You are 100% Gen Z"
     else:
         return "Can you even type yet? You're too young, go play outside."
-
+@app.route("/horoscope", methods = ["POST"])
+def showhoroscope():
+    form_data = request.form
+    month = int(form_data["month"])
+    day = int(form_data["day"])
+    z_sign = zodiac_sign(month, day)
+    data = get_horoscope(z_sign)
+    print "Month is "+ str(month)
+    print "Day is "+ str(day)
+    print z_sign
+    return render_template("horoscope.html", data = data)
 
 
 app.run(debug=True)
