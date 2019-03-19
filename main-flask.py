@@ -8,7 +8,7 @@ app = Flask("MyApp")
 
 @app.route("/")
 def homepage():
-    render_template("index.html", message="")
+    render_template("index.html")
 
 @app.route("/<visitor>")
 
@@ -51,5 +51,5 @@ def showhoroscope():
     print z_sign
     return render_template("horoscope.html", data = data)
 
-
-app.run(debug=True)
+if __name__ == "__main__":
+	app.run(debug=True)
